@@ -25,7 +25,7 @@ NSL KDD is the dataset used for this project. It's an improved version from the 
 
 * DOS: Denial of service (ex. Smurf)
 * R2L: Unauthorized access from a remote machine; hacker attemps to get local user privileges vulnerabilities in the system (ex. httptunnel)
-* U2R: Unauthorized access to local superuser (root) privileges; hackers operates as root user and abuses vulnerabilities in the system (ex. buffer_overflow)
+* U2R: Unauthorized access to local superuser (root) privileges; hacker operates as root user and abuses vulnerabilities in the system (ex. buffer_overflow)
 * Probing: Unauthorized scans on the victim's machine to determine vulnerabilities that may be exploited (ex. Nmap)
 
 
