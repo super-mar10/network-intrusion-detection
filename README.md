@@ -1,5 +1,13 @@
 # Network Intrusion Detection
 
+#### Outline
+
+1. EDA - Eploratory Data Analysis 
+2. Pre-processing [_in-progress_]
+3. ....
+
+---
+
 ### Task:
 
 Develop a machine learning model to detect network intrusions. The predictive model will distinguish malicious and normal connections.
