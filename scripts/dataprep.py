@@ -6,7 +6,6 @@ Set of functions used to load and categorize dataset (train or test)
 """
 
 def load_dataset(dset: str, fields: str, verbose=False):
-    
     """Load one of the NSL-KDD datasets (train or test)
 
     Args:
@@ -39,22 +38,21 @@ def load_dataset(dset: str, fields: str, verbose=False):
         
     return df
 
-class CategorizeData:
-    def __init__(self):
-        self.attack_dict = {}
-        
-    def js_load(self, filename):
-        """Load Json file"""
-        with open(f'./data/{filename}.json') as f_in:
-            return self.attack_dict.update(json.load(f_in))
+def mal_categorizer(df, filename='attack_dictionary'):
+    """Malware categorizer loads dictionary file and categorizes the attack names
     
-    def mal_identifier(labels):
-        if labels == 'normal':
-            return 'normal'
-        else:
-            return 'malicious'
+    Args:
+    df = pandas dataframe
+    filename = name of malware dictionary
     
-    def mal_categorizer(self, df):
-        df['labels_5cat'] = df['attack_name'].map(self.attack_dict)
-        df['labels_2cat'] = df.labels_5cat.apply(CategorizeData.mal_identifier)
-        return df
+    Returns:
+    df = new pandas dataframe with labeled categories (labels_2cat & labels_5cat)
+    """
+    
+    with open(f'./data/{filename}.json') as f_in:
+            attack_dict = json.load(f_in)
+            
+    df['labels_5cat'] = df['attack_name'].map(attack_dict)
+    df['labels_2cat'] = df.labels_5cat.apply(lambda label: 'normal' if label == 'normal' else 'malicious')
+    
+    return df
